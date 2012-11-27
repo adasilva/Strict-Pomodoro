@@ -78,6 +78,14 @@
     "message": "By the strictness philosophy, the only way to <em>cancel</em> a running timer is to disable the extension.",
     "description": "On the options page, note below the label for the click-restarts checkbox explaining that this will not allow users to *cancel* a running timer"
   },
+  "options_allow_add_whitelist": {
+    "message": "Allow user to modify whitelist in whitelist mode",
+    "description": "On the options page, label for the checkbox that enables/disables the feature that allows users to modify the whitelist if in whitelist mode"
+  },
+  "options_allow_add_whitelist_note": {
+    "message": "If you are building your work-allowable whitelist, check this box and StrictPomodoro will allow you to add sites to your whitelist while in work mode",
+    "description": "On the options page, note below the label for the allow add whitelist label that explains its purpose"
+  },
   "options_save_changes": {
     "message": "Save changes",
     "description": "On the options page, text for the submit button"

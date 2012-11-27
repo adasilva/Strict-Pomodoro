@@ -26,6 +26,7 @@ var form = document.getElementById('options-form'),
   showNotificationsEl = document.getElementById('show-notifications'),
   shouldRingEl = document.getElementById('should-ring'),
   clickRestartsEl = document.getElementById('click-restarts'),
+  allowAddToWhitelistEl = document.getElementById('allow-add-whitelist'),
   saveSuccessfulEl = document.getElementById('save-successful'),
   timeFormatErrorEl = document.getElementById('time-format-error'),
   background = chrome.extension.getBackgroundPage(),
@@ -63,7 +64,8 @@ form.onsubmit = function () {
     showNotifications:  showNotificationsEl.checked,
     shouldRing:         shouldRingEl.checked,
     clickRestarts:      clickRestartsEl.checked,
-    whitelist:          whitelistEl.selectedIndex == 1
+    whitelist:          whitelistEl.selectedIndex == 1,
+    allowAddToWhitelist:          allowAddToWhitelistEl.checked
   })
   saveSuccessfulEl.className = 'show';
   return false;
@@ -74,6 +76,7 @@ showNotificationsEl.onchange = formAltered;
 shouldRingEl.onchange = formAltered;
 clickRestartsEl.onchange = formAltered;
 whitelistEl.onchange = formAltered;
+allowAddToWhitelistEl.onchange = formAltered;
 
 function formAltered() {
   saveSuccessfulEl.removeAttribute('class');
@@ -85,6 +88,7 @@ showNotificationsEl.checked = background.PREFS.showNotifications;
 shouldRingEl.checked = background.PREFS.shouldRing;
 clickRestartsEl.checked = background.PREFS.clickRestarts;
 whitelistEl.selectedIndex = background.PREFS.whitelist ? 1 : 0;
+allowAddToWhitelistEl.checked = background.PREFS.allowAddToWhitelist ? 1 : 0;
 
 var duration, minutes, seconds;
 for(var key in durationEls) {
@@ -102,7 +106,9 @@ for(var key in durationEls) {
 }
 
 function setInputDisabled(state) {
-  siteListEl.disabled = state;
+  if( !(background.PREFS.whitelist && background.PREFS.allowAddToWhitelist) ) {
+	  siteListEl.disabled = state;
+  }
   whitelistEl.disabled = state;
   for(var key in durationEls) {
     durationEls[key].disabled = state;
