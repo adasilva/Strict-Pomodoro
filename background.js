@@ -33,7 +33,8 @@ function defaultPrefs() {
     ],
     durations: { // in seconds
       work: 25 * 60,
-      break: 5 * 60
+      break: 5 * 60,
+      long-break: 15*60
     },
     shouldRing: true,
     clickRestarts: false,

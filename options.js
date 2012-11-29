@@ -34,6 +34,7 @@ var form = document.getElementById('options-form'),
   
 durationEls['work'] = document.getElementById('work-duration');
 durationEls['break'] = document.getElementById('break-duration');
+durationEls['long-break'] = document.getElementById('long-break-duration');
 
 var TIME_REGEX = /^([0-9]+)(:([0-9]{2}))?$/;
 

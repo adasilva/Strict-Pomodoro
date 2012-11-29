@@ -7,7 +7,7 @@
     "message": "Enforces the Pomodoro time management technique by blocking distractions during work timers, then unblocking during breaks",
     "description": "Description of the extension"
   },
-  
+
   "work": {
     "message": "work",
     "description": "The name of the work timer"
@@ -15,6 +15,10 @@
   "break": {
     "message": "break",
     "description": "The name of the break timer"
+  },
+  "long_break": {
+    "message": "long break",
+    "description": "The name of the long break timer"
   },
   "minutes": {
     "message": "minutes",
